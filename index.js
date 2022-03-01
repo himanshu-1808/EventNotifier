@@ -2,7 +2,6 @@
 console.log("hello");
 
 
-
 // set audio for alarm
 const audio = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3');
 audio.loop = true;
@@ -86,16 +85,6 @@ remove = (value) => {
 }
 
 
-// Adds newAlarm to the unordered list as a new list item on webpage
-function showNewAlarm(newAlarm){
-    const html =`
-    <li class = "time-list">        
-        <span class="time">${newAlarm}</span><br/>
-        <span class="description">This is event for test</span>
-        <button class="deleteAlarm time-control" id="delete-button" onclick = "remove(this.value)" value=${newAlarm}>Delete Alarm</button>       
-    </li>`
-    myList.innerHTML += html
-};
 
 
 // event to set a new alarm whenever the form is submitted 
@@ -115,16 +104,17 @@ addAlarm.addEventListener('submit', e=> {
     if(new_s === '0'){
         new_s = '00'
     }
-    
+    let des=formatTime(addAlarm.des.value);
     const newAlarm = `${new_h}:${new_m}:${new_s}`
-
+const destest = des;
+// showNewAlarm(destest);
 //     add newAlarm to alarmList
     if(isNaN(newAlarm)){
         if(!alarmList.includes(newAlarm)){
             alarmList.push(newAlarm);
             console.log(alarmList);
             console.log(alarmList.length);
-            showNewAlarm(newAlarm);
+            showNewAlarm(newAlarm ,destest);
             addAlarm.reset();
         } else{
             alert(`Alarm for ${newAlarm} already set.`);
@@ -134,6 +124,27 @@ addAlarm.addEventListener('submit', e=> {
     }        
 })
 }
+// const eventdes = document.getElementById('des');
+// eventdes.addEventListener('submit',e=>{
+//     e.preventDefault();
+    
+//     let des =eventdes.des.value;
+//     console.log(des);
+// })
+
+
+// Adds newAlarm to the unordered list as a new list item on webpage
+function showNewAlarm(newAlarm,destest){
+    const html =`
+    <li class = "time-list">        
+        <span class="time">${newAlarm}</span><br/>
+        <span class="time">${destest}</span><br/>
+        <button class="deleteAlarm time-control" id="delete-button" onclick = "remove(this.value)" value=${newAlarm}>Delete Alarm</button>       
+    </li>`
+    myList.innerHTML += html
+};
+
+
 
 // calls updateTime() every second
 setInterval(updateTime, 1000);
