@@ -4,9 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>EventNotifier</title>
 </head>
 <body>
-    hello testing
+   <section class="container">
+       <div class="time-display">
+           <div class="clock"></div>
+       </div>
+       <form class="setAlarm">
+           <lable class="alarm-heading"><h3>Set Alarm(24-Hour Clock)</h3></lable><br/>
+            <div class="set-alarm-feild">
+                <input type="number" name="a_hour" placeholder="HH" max="23" min="00">
+                <input type="number" name="min" placeholder="MM" max="59" min="00">
+                <input type="number" name="a_sec" placeholder="SS" max="59" min="00">
+            </div>
+            <div class="controls">
+                <button type="submit" class="set-alarm">Set Alarm</button>
+                <button type="reset" onclick="clearAlarm()" class="clear-alarm">Stop Alarm</button>
+            </div>
+        </form>
+   </section>
+   <hr style="margin-top:20px;">
+   <section>
+       <div>
+           <h3 class="alarm-heading" style="margin-top:20px;">Upcoming Alarms</h3>
+       </div>
+       <div>
+           <ul id="myList"></ul>
+       </div>
+   </section>
+   <script src="index.js"></script>
 </body>
 </html>
