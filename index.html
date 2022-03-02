@@ -1,46 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- <script src="index.js"></script> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EventNotifier</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <section class="container">
         <div class="time-display">
-            
+
             <div id="clock"></div>
         </div>
         <form class="setAlarm">
-        <label class="alarm-heading"><h3>Set Alarm(24-Hour Clock)</h3><label><br>
-        <div class="set-alarm-field">
-            <input type="number" name="a_hour" id="a_hour" placeholder="HH" max="23" min="00">
-            <input type="number" name="a_min" id="a_min" placeholder="MM" max="59" min="00">
-            <input type="number" name="a_sec" id="a_sec" placeholder="SS" max="59" min="00">
-            <input type="text" id="des" placeholder="About upcoming event">
-        </div>
-            <div class="controls">
-                <button type="submit" id="set-alarm" class="set-alarm">Set Alarm</button>
-                <button type="reset" onclick="clearAlarm()" class="clear-alarm">Stop Alarm</button>
-            </div>
-        </form> 
+            <label class="alarm-heading">
+                <h3>Set Alarm(24-Hour Clock)</h3><label><br>
+                    <div class="set-alarm-field">
+                        <input type="number" name="a_hour" id="a_hour" placeholder="HH" max="23" min="00">
+                        <input type="number" name="a_min" id="a_min" placeholder="MM" max="59" min="00">
+                        <input type="number" name="a_sec" id="a_sec" placeholder="SS" max="59" min="00">
+                      
+                        <input type="text" id="des" placeholder="About upcoming event">
+                    </div>
+                     <div class="controls">
+                    <button type="submit" id="set-alarm" class="set-alarm">Set Alarm</button>
+                    <button type="reset" onclick="clearAlarm()" class="clear-alarm">Stop Alarm</button>
+                    </div>
+        </form>
     </section>
-    <hr style="margin-top: 20px">
+    
 
     <section>
         <div>
-            <h3 class="alarm-heading" style="margin-top: -20px;">Upcoming Alarms</h3>
+            <h3 class="alarm-heading" style="margin-top: -20px;">Upcoming Events</h3>
         </div>
-        <div>
-            <ul class="test" id = "myList">
-                
+        <div class="elist">
+            <ul id="myList">
             </ul>
         </div>
     </section>
-   
+
 </body>
 <script src="index.js"></script>
+
 </html>

@@ -35,7 +35,8 @@ function updateTime() {
     const now = `${hour}:${minutes}:${seconds}`;
     const tdisplay= document.getElementById('clock');
     tdisplay.innerHTML=`${hour}:${minutes}:${seconds}`;
-    
+  
+   
 //     check if the alarmList includes the current time , "now"
 //     if yes, ringing() is called
     if(alarmList.includes(now) ){
@@ -107,7 +108,7 @@ addAlarm.addEventListener('submit', e=> {
     let des=formatTime(addAlarm.des.value);
     const newAlarm = `${new_h}:${new_m}:${new_s}`
 const destest = des;
-// showNewAlarm(destest);
+
 //     add newAlarm to alarmList
     if(isNaN(newAlarm)){
         if(!alarmList.includes(newAlarm)){
@@ -115,6 +116,7 @@ const destest = des;
             console.log(alarmList);
             console.log(alarmList.length);
             showNewAlarm(newAlarm ,destest);
+           
             addAlarm.reset();
         } else{
             alert(`Alarm for ${newAlarm} already set.`);
@@ -124,23 +126,19 @@ const destest = des;
     }        
 })
 }
-// const eventdes = document.getElementById('des');
-// eventdes.addEventListener('submit',e=>{
-//     e.preventDefault();
-    
-//     let des =eventdes.des.value;
-//     console.log(des);
-// })
 
 
 // Adds newAlarm to the unordered list as a new list item on webpage
 function showNewAlarm(newAlarm,destest){
     const html =`
-    <li class = "time-list">        
-        <span class="time">${newAlarm}</span><br/>
-        <span class="time">${destest}</span><br/>
-        <button class="deleteAlarm time-control" id="delete-button" onclick = "remove(this.value)" value=${newAlarm}>Delete Alarm</button>       
-    </li>`
+    <li class = "time-list">  
+      <div class="info">
+      <span id="box1" class="time">${destest}</span><br/>
+    <span id="box2" class="time">${newAlarm}</span><br/>
+    
+        </div>
+        <button id="box3" class="deleteAlarm time-control" id="delete-button" onclick = "remove(this.value)" value=${newAlarm}>Delete Alarm</button>       
+        </li>`
     myList.innerHTML += html
 };
 
@@ -148,3 +146,7 @@ function showNewAlarm(newAlarm,destest){
 
 // calls updateTime() every second
 setInterval(updateTime, 1000);
+
+
+
+
